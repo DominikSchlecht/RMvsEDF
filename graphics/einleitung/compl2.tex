@@ -1,0 +1,54 @@
+\begin{figure}[htbp]
+	% Partly taken from http://www.texample.net/tikz/examples/convolution-of-two-functions/
+	\centering
+	\begin{tikzpicture}[
+		scale=0.095,
+		line width=0.25mm,
+		every node/.style={scale=1, text=blue},
+		major tick/.style={semithick, dashed},
+		x tick label/.style={anchor=north, minimum width=5mm},
+		task1/.style={blue},
+		task2/.style={red},
+		task3/.style={green},
+		desc/.style={anchor=east},
+		konf/.style={orange, very thick}
+		]
+	
+	% Task 1
+	\draw (0, 0) -- (100, 0);
+	\node[desc] at (0, 0) {Task 1};
+	
+	% Task 2
+	\draw (0, 10) -- (100, 10);
+	\node[desc] at (0, 10) {Task 2};	
+%	
+%	% Task 3
+%	\draw (0, 20) -- (100, 20);
+%	\node[desc] at (0, 20) {Task 3};	
+	
+	% Small ticks
+	\foreach \x in {0, 1,...,100}{
+		\draw (\x, -0.25) -- (\x, 0.25);
+	}
+	
+	% Major ticks with label
+	\foreach \x/\label in {0, 5,...,100}{
+		\node[x tick label] at (\x, 0) {$\label$}; 		
+		\draw[major tick] (\x, -0.5) -- (\x, 16);
+	}
+	
+	% Draw all
+	\foreach \x in {0, 15,...,100}{
+		\draw[task1] (\x, 0) -- (\x, 5) -- (\x+5, 5) -- (\x+5, 0);
+	}
+	
+	% Draw all
+	\foreach \x in {0, 40,...,100}{
+		\draw[task2] (\x, 10) -- (\x, 15) -- (\x+10, 15) -- (\x+10, 10);
+	}
+	
+	\draw[konf] (0, 17) -- (0, -7);
+	\draw[konf] (45, 17) -- (45, -7);
+	
+	\end{tikzpicture}
+\end{figure}

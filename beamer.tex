@@ -1,0 +1,57 @@
+\documentclass[unknownkeysallowed]{beamer}
+
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern}
+
+\usepackage{listings}
+
+\usepackage{graphicx}
+\usepackage{xcolor}
+\usepackage{tikz}
+\usetikzlibrary{arrows, snakes, backgrounds}
+\usepackage{wrapfig}
+
+% for \uptau
+\usepackage{upgreek}
+
+\title{Rate Monotonic vs. EDF: Judgment Day}
+\subtitle{von Buttazzo, G. C.}
+\date{\today}
+\author{Dominik Schlecht}
+\institute[THI]{Technische Hochschule Ingolstadt}
+
+\usetheme{Copenhagen}
+
+\AtBeginSection[]
+{
+  \begin{frame}[Inhaltsverzeichnis]
+    \frametitle{Inhaltsverzeichnis}
+    \tableofcontents[currentsection]
+  \end{frame}
+}
+
+\begin{document}
+	\frame{\maketitle}
+	\frame{\tableofcontents}
+	
+	\section{Einleitung}
+	\input{chapter/einleitung.tex}
+	
+	\section{Rate Monotonic}
+	\input{chapter/rm.tex}
+
+	\section{Erliest Deadline First}
+	\input{chapter/edf.tex}
+	
+	\section{Vergleich}
+	\input{chapter/vergleich.tex}
+	
+	%\section{Abschluss}
+	\section{Fazit}
+	\input{chapter/fazit.tex}
+	
+	\begin{frame}{\subsecname}
+		Fragen?
+	\end{frame}
+	
+\end{document}
