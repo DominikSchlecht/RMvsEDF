@@ -12,18 +12,14 @@
 		task3/.style={green},
 		desc/.style={anchor=east}
 		]
-	
+
 	% Task 1
-	\draw (0, 0) -- (100, 0);
-	\node[desc] at (0, 0) {Task 1};
+	\draw (0, 10) -- (100, 10);
+	\node[desc] at (0, 10) {Task 1};
 	
 	% Task 2
-	\draw (0, 10) -- (100, 10);
-	\node[desc] at (0, 10) {Task 2};	
-%	
-%	% Task 3
-%	\draw (0, 20) -- (100, 20);
-%	\node[desc] at (0, 20) {Task 3};	
+	\draw (0, 0) -- (100, 0);
+	\node[desc] at (0, 0) {Task 2};	
 	
 	% Small ticks
 	\foreach \x in {0, 1,...,100}{
@@ -36,14 +32,14 @@
 		\draw[major tick] (\x, -0.5) -- (\x, 16);
 	}
 	
-	% Draw all
+	% Draw all Task 1
 	\foreach \x in {0, 15,...,100}{
-		\draw[task1] (\x, 0) -- (\x, 5) -- (\x+5, 5) -- (\x+5, 0);
+		\draw[task1] (\x, 10) -- (\x, 15) -- (\x+5, 15) -- (\x+5, 10);
 	}
 	
-	% Draw all
+	% Draw all Task 2
 	\foreach \x in {0, 40,...,100}{
-		\draw[task2] (\x, 10) -- (\x, 15) -- (\x+10, 15) -- (\x+10, 10);
+		\draw[task2] (\x, 0) -- (\x, 5) -- (\x+10, 5) -- (\x+10, 0);
 	}
 	
 	\end{tikzpicture}

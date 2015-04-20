@@ -1,34 +1,71 @@
 \subsection{Implementation Complexity}
 \begin{frame}{\subsecname}
-	Test
+	Frage:
+	\begin{itemize}
+		\item Wie groß ist der Aufwand das Scheduling-Verfahren zu implementieren?
+	\end{itemize}
+	Antwort:
+	\begin{itemize}
+		\item Rate Monotonics ist einfacher zu implementieren!
+	\end{itemize}
 \end{frame}
+
+\begin{frame}{\subsecname}
+	Ist es so einfach?\\\pause
+	Faktoren:
+	\begin{itemize}
+		\item Wird auf einem bestehenden System entwickelt?
+		\item Sind die Prioritäten festgesetzt oder können diese während der Laufzeit verändert werden?
+		\item Wie viele Prioritäts-Level gibt es? %TODO Beispiel?
+	\end{itemize}
+\end{frame}
+
+\begin{frame}{\subsecname}
+	Annahme
+	\begin{itemize}
+		\item Das System wird von Grund auf mit einer Ready-Qeue implementiert\pause
+		\item In dieser werden die Tasks für Rate Monotonics
+			\begin{itemize}
+				\item absteigend nach nach den Proritäten-Leveln
+			\end{itemize}
+			und für Erliest Deadline First
+			\begin{itemize}
+				\item aufsteigend nach der absoluten Deadline
+			\end{itemize} gespeichert.
+	\end{itemize}
+\end{frame}
+
 \subsection{Runtime Overhead}
 \begin{frame}{\subsecname}
 	Test
 \end{frame}
+
 \subsection{Schedulability Analysis}
 \begin{frame}{\subsecname}
 	Test
 \end{frame}
+
 \subsection{Robustnes During Overloads}
 \begin{frame}{\subsecname}
 	Test
 \end{frame}
+
 \subsubsection{Permanent Overload}
 \begin{frame}{\subsecname}
 	Test
 \end{frame}
+
 \subsubsection{Transient Overload}
 \begin{frame}{\subsecname}
 	Test
 \end{frame}
+
 \subsection{Jitter and Latency}
 \begin{frame}{\subsecname}
 	Test
 \end{frame}
 
 \subsection{Other Issues}
-
 \begin{frame}{\subsecname}
 	Test
 \end{frame}

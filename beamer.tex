@@ -24,26 +24,40 @@
 
 \usetheme{Copenhagen}
 
-\AtBeginSection[]
+% Fix ToC-Spacing
+\usepackage{etoolbox}
+
+\makeatletter
+\patchcmd{\beamer@sectionintoc}{\vskip1.5em}{\vskip0.5em}{}{}
+\makeatother
+
+\AtBeginSubsection[]
+%\AtBeginSection[]
 {
-  \begin{frame}[Inhaltsverzeichnis]
-    \frametitle{Inhaltsverzeichnis}
-    \tableofcontents[currentsection]
-  \end{frame}
+	\begin{frame}<beamer>
+		\frametitle{Gliederung}
+		\tableofcontents[
+  			currentsection,
+  			sectionstyle=show/show,
+  			subsectionstyle=show/shaded/hide,
+  			squeeze
+		]
+	\end{frame}
 }
 
 \begin{document}
 	\frame{\maketitle}
-	\frame{\tableofcontents}
+	\frame{\tableofcontents[hideallsubsections]}
+	
 	
 	\section{Einleitung}
 	\input{chapter/einleitung.tex}
 	
-	\section{Rate Monotonic}
-	\input{chapter/rm.tex}
+	\section{Rate Monotonic \& Erliest Deadline First}
+	\input{chapter/rmAndEdf.tex}
 
-	\section{Erliest Deadline First}
-	\input{chapter/edf.tex}
+	%\section{Erliest Deadline First}
+	%\input{chapter/edf.tex}
 	
 	\section{Vergleich}
 	\input{chapter/vergleich.tex}

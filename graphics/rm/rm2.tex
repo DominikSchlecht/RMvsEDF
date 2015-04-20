@@ -15,7 +15,7 @@
 	
 	% Task 1
 	\draw (0, 0) -- (100, 0);
-	\node[desc] at (0, 0) {Task 1};
+	\node[desc] at (0, 0) {Task 3};
 	
 	% Task 2
 	\draw (0, 10) -- (100, 10);
@@ -23,7 +23,7 @@
 	
 	% Task 3
 	\draw (0, 20) -- (100, 20);
-	\node[desc] at (0, 20) {Task 3};	
+	\node[desc] at (0, 20) {Task 1};	
 	
 	% Small ticks
 	\foreach \x in {0, 1,...,100}{
@@ -36,9 +36,9 @@
 		\draw[major tick] (\x, -0.5) -- (\x, 26);
 	}
 	
-	\draw[task1] (0, 0) -- (0, 5) -- (10, 5) -- (10, 0);
+	\draw[task1] (0, 20) -- (0, 25) -- (10, 25) -- (10, 20);
 	\draw[task2] (10, 10) -- (10, 15) -- (20, 15) -- (20, 10);
-%	\draw[task3] (20, 20) -- (20, 25) -- (30, 25) -- (30, 20);
+%	\draw[task3] (20, 0) -- (20, 5) -- (30, 5) -- (30, 0);
 		
 	\end{tikzpicture}
 %	\caption{Ablaufübersicht}

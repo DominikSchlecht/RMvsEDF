@@ -1,9 +1,20 @@
 \subsection{Grundlagen}
 \begin{frame}{\subsecname}
-		Grundlagen:
-		\begin{itemize}
-			\item Tasks $T_i$ mit kurzer Periode werden bevorzugt
-		\end{itemize}
+		\begin{columns}[]
+  			\begin{column}{0.5\textwidth}
+				RM:
+				\begin{itemize}
+					\item Tasks $T_i$ mit kurzer Periode werden bevorzugt
+				\end{itemize}
+
+			\end{column}
+  			\begin{column}{0.5\textwidth}
+  				EDF:
+				\begin{itemize}
+					\item Task $T_i$ mit der nächsten Deadline wird bevorzugt
+				\end{itemize}	
+  			\end{column}
+		\end{columns}
 \end{frame}
 
 \subsection{Beispiel}
@@ -12,8 +23,8 @@
 		\begin{tabular}{l||c|c}
 				Task ($\uptau_i$) & Dauer ($C_i$) & Task-Periode ($T_i$)\\\hline\hline
 				Task 1 & 5 & 15\\
+				Task 2 & 20 & 20\\
 				Task 2 & 15 & 40\\
-				Task 3 & 
 		\end{tabular}
 	\end{center}
 \end{frame}
