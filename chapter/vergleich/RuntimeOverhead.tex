@@ -1,0 +1,73 @@
+\subsection{Runtime Overhead}
+\begin{frame}{\subsecname}
+	Vorurteil:
+	\begin{itemize}
+		\item Rate Monotonics produziert weniger Runtime-Overhead, da die Prioritäten währen der Laufzeit nicht neu berechnet werden müssen
+	\end{itemize}
+\end{frame}
+
+\newcommand{\showRMSlideRO}[1] {\begin{frame}{Beispiel Rate Monotonics}
+	\begin{center}
+		%\rowcolors{1}{RoyalBlue!20}{RoyalBlue!5}
+		\begin{tabular}{c||c|c}
+			Task ($\uptau_i$) & Dauer ($C_i$) & Task-Periode ($T_i$)\\\hline\hline
+			$\uptau_1$ & 4 & 10\\
+			$\uptau_2$ & 8 & 14
+		\end{tabular}
+	\end{center}
+	\input{graphics/vergleich/runtimeOverhead#1_RM.tex}
+\end{frame}}
+
+\forloop{ct}{1}{\value{ct} < 8}%
+{%
+	\showRMSlideRO{\arabic{ct}}
+}
+
+
+\begin{frame}{Beispiel Erliest Deadline First}
+	\begin{center}
+		%\rowcolors{1}{RoyalBlue!20}{RoyalBlue!5}
+		\begin{tabular}{c||c|c}
+			Task ($\uptau_i$) & Dauer ($C_i$) & Task-Periode ($T_i$)\\\hline\hline
+			$\uptau_1$ & 4 & 10\\
+			$\uptau_2$ & 8 & 14
+		\end{tabular}
+	\end{center}
+	\input{graphics/vergleich/runtimeOverhead1_EDF.tex}
+\end{frame}
+
+\begin{frame}{\subsecname}
+	Aber:\pause
+	\begin{itemize}
+		\item Zieht man den Aufwand der Context-Switches in Betracht ergibt sich ein anderes Bild
+	\end{itemize}
+\end{frame}
+
+\begin{frame}{\subsecname}
+	Context-Switching/Preemptions:
+	\begin{itemize}
+		\item Umschalten zwischen verschiedenen Tasks
+		\item Zieht Aufwände mit sich
+	\end{itemize}
+\end{frame}
+
+\begin{frame}{\subsecname}
+	Rate Monotonics:
+	\input{graphics/vergleich/runtimeOverhead7_RM.tex}
+	Erliest Deadline First:
+	\input{graphics/vergleich/runtimeOverhead1_EDF.tex}
+\end{frame}
+
+\begin{frame}{\subsecname}
+	Rate Monotonics:
+	\input{graphics/vergleich/runtimeOverhead_RM_C.tex}
+	Erliest Deadline First:
+	\input{graphics/vergleich/runtimeOverhead_EDF_C.tex}
+\end{frame}
+
+\begin{frame}{\subsecname}
+	Fazit:
+	\begin{itemize}
+		\item Beachtet man den Aufwand der Context-Switches, erzeugt Rate Monotonics mehr Overhead als Erliest Deadline First
+	\end{itemize}
+\end{frame}

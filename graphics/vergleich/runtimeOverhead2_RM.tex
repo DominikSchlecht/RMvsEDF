@@ -1,0 +1,60 @@
+\begin{figure}[htbp]
+	% Partly taken from http://www.texample.net/tikz/examples/convolution-of-two-functions/
+	\centering
+	\begin{tikzpicture}[
+		scale=0.095,
+		line width=0.25mm,
+		every node/.style={scale=1, text=blue},
+		major tick/.style={semithick, dashed},
+		x tick label/.style={anchor=north, minimum width=5mm},
+		task1/.style={blue},
+		task2/.style={red},
+		task3/.style={green},
+		desc/.style={anchor=east}
+		]
+	
+	% Task 2
+	\draw (0, 0) -- (70, 0);
+	\node[desc] at (0, 0) {$\uptau_2$};
+	
+	% Task 1
+	\draw (0, 10) -- (70, 10);
+	\node[desc] at (0, 10) {$\uptau_1$};	
+	
+	% Small ticks
+	\foreach \x in {0, 1,...,70}{
+		\draw (\x, -0.25) -- (\x, 0.25);
+	}
+	
+	% Major ticks with label
+	\foreach \x/\label in {0, 5,...,70}{
+		\node[x tick label] at (\x, 0) {$\label$}; 		
+		\draw[major tick] (\x, -0.5) -- (\x, 16);
+	}
+	
+	% Draw all
+%	\foreach \x in {0, 10,...,69}{
+%		\draw[task1] (\x, 10) -- (\x, 15) -- (\x+4, 15) -- (\x+4, 10);
+%	}
+
+	\draw[task1] (0, 10) --  (0, 15) --  (4, 15) -- (4, 10);	
+	\draw[task2] (4, 0) -- (4, 5) -- (10, 5);
+%	\draw[task1] (10, 10) -- (10, 15) -- (14, 15) -- (14, 10);
+%	\draw[task2] (14, 5) -- (16, 5) -- (16, 0);
+%	\draw[task2] (16, 0) -- (16, 5) -- (20, 5);
+%	\draw[task1] (20, 10) -- (20, 15) -- (24, 15) -- (24, 10);
+%	\draw[task2] (24, 5) -- (28, 5) -- (28, 0);
+%	\draw[task2] (28, 0) -- (28, 5) -- (30, 5);
+%	\draw[task1] (30, 10) -- (30, 15) -- (34, 15) -- (34, 10);
+%	\draw[task2] (34, 5) -- (40, 5) -- (40, 0);
+%	\draw[task1] (40, 10) -- (40, 15) -- (44, 15) -- (44, 10);
+%	\draw[task2] (44, 0) -- (44, 5) -- (50, 5);
+%	\draw[task1] (50, 10) -- (50, 15) -- (54, 15) -- (54, 10);
+%	\draw[task2] (54, 5) -- (56, 5) -- (56, 0);
+%	\draw[task2] (56, 0) -- (56, 5) -- (60, 5);
+%	\draw[task1] (60, 10) -- (60, 15) -- (64, 15) -- (64, 10);
+%	\draw[task2] (64, 5) -- (68, 5) -- (68, 0);
+		
+	\end{tikzpicture}
+%	\caption{Ablaufübersicht}
+\end{figure} 

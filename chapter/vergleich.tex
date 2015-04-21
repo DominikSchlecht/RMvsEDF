@@ -35,43 +35,7 @@
 	\end{itemize}
 \end{frame}
 
-\subsection{Runtime Overhead}
-\begin{frame}{\subsecname}
-	Bisherige Meinungen:
-	\begin{itemize}
-		\item Rate Monotonics produziert weniger Runtime-Overhead, da die Prioritäten währen der Laufzeit nicht neu berechnet werden müssen
-	\end{itemize}
-\end{frame}
-
-\begin{frame}{\subsecname}
-	Beispiel mit Überziehung%TODO Beispiel
-\end{frame}
-
-\begin{frame}{\subsecname}
-	Aber:\pause
-	\begin{itemize}
-		\item Zieht man den Aufwand der Context-Switches in Betracht ergibt sich ein anderes Bild
-	\end{itemize}
-\end{frame}
-
-\begin{frame}{\subsecname}
-	Context-Switching/Preemptions:
-	\begin{itemize}
-		\item Umschalten zwischen verschiedenen Tasks
-		\item Zieht Aufwände mit sich
-	\end{itemize}
-\end{frame}
-
-\begin{frame}{\subsecname}
-	Beispiel mit Überziehung%TODO Beispiel
-\end{frame}
-
-\begin{frame}{\subsecname}
-	Fazit:
-	\begin{itemize}
-		\item Beachtet man den Aufwand der Context-Switches, erzeugt Rate Monotonics mehr Overhead als Erliest Deadline First
-	\end{itemize}
-\end{frame}
+\input{chapter/vergleich/RuntimeOverhead.tex}
 
 \subsection{Schedulability Analysis}
 \begin{frame}{\subsecname}

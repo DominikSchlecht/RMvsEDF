@@ -17,26 +17,38 @@
 		\end{columns}
 \end{frame}
 
-\subsection{Beispiel}
-\begin{frame}
+\subsection{Beispiele}
+
+\newcommand{\showRMSlide}[1] {\begin{frame}{Beispiel Rate Monotonics}
 	\begin{center}
 		\begin{tabular}{l||c|c}
 				Task ($\uptau_i$) & Dauer ($C_i$) & Task-Periode ($T_i$)\\\hline\hline
-				Task 1 & 5 & 15\\
-				Task 2 & 20 & 20\\
-				Task 2 & 15 & 40\\
+				$\uptau_1$ & 5 & 15\\
+				$\uptau_2$ & 5 & 20\\
+				$\uptau_3$ & 7 & 40\\
 		\end{tabular}
 	\end{center}
-\end{frame}
+	\input{graphics/rm/rm#1.tex}
+\end{frame}}
 
-\begin{frame}{\subsecname}
-		\input{graphics/rm/rm1.tex}
-\end{frame}
+\forloop{ct}{1}{\value{ct} < 9}%
+{%
+	\showRMSlide{\arabic{ct}}
+}
 
-\begin{frame}{\subsecname}
-		\input{graphics/rm/rm2.tex}
-\end{frame}
+\newcommand{\showEDFSlide}[1] {\begin{frame}{Beispiel Erliest Deadline First}
+	\begin{center}
+		\begin{tabular}{l||c|c}
+				Task ($\uptau_i$) & Dauer ($C_i$) & Task-Periode ($T_i$)\\\hline\hline
+				$\uptau_1$ & 5 & 15\\
+				$\uptau_2$ & 5 & 20\\
+				$\uptau_3$ & 7 & 40\\
+		\end{tabular}
+	\end{center}
+	\input{graphics/edf/edf#1.tex}
+\end{frame}}
 
-\begin{frame}{\subsecname}
-		\input{graphics/rm/rm3.tex}
-\end{frame}
+\forloop{ct}{1}{\value{ct} < 10}%
+{%
+	\showEDFSlide{\arabic{ct}}
+}
