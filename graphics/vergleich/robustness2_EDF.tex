@@ -1,0 +1,71 @@
+\begin{figure}[htbp]
+	% Partly taken from http://www.texample.net/tikz/examples/convolution-of-two-functions/
+	\centering
+	\begin{tikzpicture}[
+		scale=0.08,
+		line width=0.25mm,
+		every node/.style={scale=1, text=blue},
+		major tick/.style={semithick, dashed},
+		x tick label/.style={anchor=north, minimum width=5mm},
+		task1/.style={blue},
+		task2/.style={red},
+		task3/.style={green},
+		desc/.style={anchor=east}
+		]
+
+
+	% Task 3
+	\draw (0, 0) -- (120, 0);
+	\node[desc] at (0, 0) {$\uptau_3$};
+	
+	% Task 2
+	\draw (0, 10) -- (120, 10);
+	\node[desc] at (0, 10) {$\uptau_2$};	
+
+	% Task 1
+	\draw (0, 20) -- (120, 20);
+	\node[desc] at (0, 20) {$\uptau_1$};	
+
+	
+	% Small ticks
+	\foreach \x in {0, 1,...,120}{
+		\draw (\x, -0.25) -- (\x, 0.25);
+	}
+	
+	% Major ticks with label
+	\foreach \x/\label in {0, 10,...,120}{
+		\node[x tick label] at (\x, 0) {$\label$}; 		
+		\draw[major tick] (\x, -0.5) -- (\x, 26);
+	}
+
+	\draw[task1] (0, 20) --  (0, 25) --  (4, 25) -- (4, 20);
+	\draw[task2] (4, 10) --  (4, 15) --  (10, 15) -- (10, 10);
+	\draw[task1] (10, 20) --  (10, 25) --  (14, 25) -- (14, 20);
+	\draw[task3] (14, 0) --  (14, 5) --  (19, 5) -- (19, 0);
+	\draw[task2] (19, 10) --  (19, 15) --  (25, 15) -- (25, 10);
+	\draw[task1] (25, 20) --  (25, 25) --  (29, 25) -- (29, 20);
+	\draw[task1] (29, 20) --  (29, 25) --  (33, 25) -- (33, 20);
+	\draw[task2] (33, 10) --  (33, 15) --  (39, 15) -- (39, 10);
+	\draw[task3] (39, 0) --  (39, 5) --  (44, 5) -- (44, 0);
+	\draw[task1] (44, 20) --  (44, 25) --  (48, 25) -- (48, 20);
+	\draw[task2] (48, 10) --  (48, 15) --  (54, 15) -- (54, 10);
+	\draw[task1] (54, 20) --  (54, 25) --  (58, 25) -- (58, 20);
+	\draw[task1] (58, 20) --  (58, 25) --  (62, 25) -- (62, 20);
+	\draw[task3] (62, 0) --  (62, 5) --  (67, 5) -- (67, 0);
+	\draw[task2] (67, 10) --  (67, 15) --  (73, 15) -- (73, 10);
+	\draw[task1] (73, 20) --  (73, 25) --  (77, 25) -- (77, 20);
+	\draw[task2] (77, 10) --  (77, 15) --  (83, 15) -- (83, 10);
+	\draw[task1] (83, 20) --  (83, 25) --  (87, 25) -- (87, 20);
+	\draw[task3] (87, 0) --  (87, 5) --  (92, 5) -- (92, 0);
+	\draw[task1] (92, 20) --  (92, 25) --  (96, 25) -- (96, 20);
+	\draw[task2] (96, 10) --  (96, 15) --  (102, 15) -- (102, 10);
+	\draw[task1] (102, 20) --  (102, 25) --  (106, 25) -- (106, 20);
+	\draw[task2] (106, 10) --  (106, 15) --  (112, 15) -- (112, 10);
+	\draw[task1] (112, 20) --  (112, 25) --  (116, 25) -- (116, 20);
+	\draw[task3] (116, 0) --  (116, 5) --  (120, 5);
+	
+	\draw[task3] (14, 0) --  (14, 5) --  (19, 5) -- (19, 0);
+		
+	\end{tikzpicture}
+%	\caption{Ablaufübersicht}
+\end{figure} 
