@@ -37,35 +37,174 @@
 
 \subsection{Runtime Overhead}
 \begin{frame}{\subsecname}
-	Test
+	Bisherige Meinungen:
+	\begin{itemize}
+		\item Rate Monotonics produziert weniger Runtime-Overhead, da die Prioritäten währen der Laufzeit nicht neu berechnet werden müssen
+	\end{itemize}
+\end{frame}
+
+\begin{frame}{\subsecname}
+	Beispiel mit Überziehung%TODO Beispiel
+\end{frame}
+
+\begin{frame}{\subsecname}
+	Aber:\pause
+	\begin{itemize}
+		\item Zieht man den Aufwand der Context-Switches in Betracht ergibt sich ein anderes Bild
+	\end{itemize}
+\end{frame}
+
+\begin{frame}{\subsecname}
+	Context-Switching/Preemptions:
+	\begin{itemize}
+		\item Umschalten zwischen verschiedenen Tasks
+		\item Zieht Aufwände mit sich
+	\end{itemize}
+\end{frame}
+
+\begin{frame}{\subsecname}
+	Beispiel mit Überziehung%TODO Beispiel
+\end{frame}
+
+\begin{frame}{\subsecname}
+	Fazit:
+	\begin{itemize}
+		\item Beachtet man den Aufwand der Context-Switches, erzeugt Rate Monotonics mehr Overhead als Erliest Deadline First
+	\end{itemize}
 \end{frame}
 
 \subsection{Schedulability Analysis}
 \begin{frame}{\subsecname}
-	Test
+	%TODO
 \end{frame}
 
 \subsection{Robustnes During Overloads}
+
 \begin{frame}{\subsecname}
-	Test
+	Beispiel Overload
+\end{frame}
+
+\begin{frame}{\subsecname}
+	Vorurteil:
+	\begin{itemize}
+		\item Rate Monotonics ist in Overload-Situationen besser vorhersehbar
+	\end{itemize}$ $\\\pause
+	Test anhand
+	\begin{itemize}
+		\item Permanent Overload
+		\item Transient Overload
+	\end{itemize}
 \end{frame}
 
 \subsubsection{Permanent Overload}
-\begin{frame}{\subsecname}
-	Test
+\begin{frame}{\subsubsecname}
+	Beispiel aus dem Paper mit RM
+\end{frame}
+
+\begin{frame}{\subsubsecname}
+	Folge für Rate Monotonics:
+	\begin{itemize}
+		\item Tasks mit niedriger Priorität werden vollständig blockiert!
+		\item Gut vorhersagbar
+	\end{itemize}
+\end{frame}
+
+
+\begin{frame}{\subsubsecname}
+	Beispiel aus dem Paper mit EDF
+\end{frame}
+
+
+\begin{frame}{\subsubsecname}
+	Verhalten ist eigentlich sehr gut vorhersehbar:\\
+	Die durchschnittliche Periode $\bar{T}_i$ für einen Task $\uptau_i$ ist gegeben durch
+	\begin{equation}
+		\bar{T}_i=T_i\cdot U
+	\end{equation}
+\end{frame}
+
+\begin{frame}{\subsubsecname}
+	Rückschluss auf das Beispiel aus dem Paper mit EDF
+\end{frame}
+
+\begin{frame}{\subsubsecname}
+	Fazit:
+	\begin{itemize}
+		\item Beide Verfahren bei permanenter Überlastung sehr gut vorhersagbar
+		\item Einsatzgebiet ist stark Situationsabhängig
+	\end{itemize}
 \end{frame}
 
 \subsubsection{Transient Overload}
+\begin{frame}{\subsubsecname}
+	Annahme für RM:
+	\begin{itemize}
+		\item Es werden Tasks mit kurzen Perioden bevorzugt\pause
+		\item[$\Rightarrow$] Falls ein Task seine Deadline überschreitet, wird der Task mit der längsten Periodenlänge verschoben/unterbrochen	
+	\end{itemize}
+\end{frame}
+
+\begin{frame}{\subsubsecname}
+	Gegenbeispiel aus Paper
+\end{frame}
+
+\begin{frame}{\subsubsecname}
+	
+\end{frame}
+
 \begin{frame}{\subsecname}
-	Test
+	Fazit:
+	\begin{itemize}
+		\item Permanent Overload: Gleichwertig
+		\item Transient Overload:
+		\begin{itemize}
+			\item Rate Monotonics verführt zu falschen Annahmen
+			\item Weitere Betrachtung in der nächsten Sektion
+		\end{itemize}
+	\end{itemize}
 \end{frame}
 
 \subsection{Jitter and Latency}
+
 \begin{frame}{\subsecname}
-	Test
+	Beispiel für Jitter
+\end{frame}
+
+\begin{frame}{\subsecname}
+	Vorurteil:
+	\begin{itemize}
+		\item Durch die festen Prioritäten entsteht währen der Laufzeit bei Rate Monotonics weniger Jitter als bei Erliest Deadline First. 
+	\end{itemize}
+\end{frame}
+
+\begin{frame}{\subsecname}
+	Beispiel aus Paper
+\end{frame}
+
+\begin{frame}{\subsecname}
+	Graphen aus Paper
+\end{frame}
+
+\begin{frame}{\subsecname}
+	Fazit:
+	\begin{itemize}
+		\item RM hält Jitter für die hoch priorisierten Tasks sehr niedrig, vernachlässigt jedoch die anderen Tasks
+		\item Insgesamt erzeugt EDF, gerade bei hoher Auslastung, wesentlich weniger Jitter
+	\end{itemize}
 \end{frame}
 
 \subsection{Other Issues}
-\begin{frame}{\subsecname}
+\subsubsection{Ressource Sharing}
+\begin{frame}{\subsubsecname}
+	Test
+\end{frame}
+
+\subsubsection{Aperiodic Task Handling}
+\begin{frame}{\subsubsecname}
+	Test
+\end{frame}
+
+\subsubsection{Ressource Reservation}
+\begin{frame}{\subsubsecname}
 	Test
 \end{frame}
