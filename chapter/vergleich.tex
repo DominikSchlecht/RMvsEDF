@@ -47,7 +47,12 @@
 \subsection{Jitter and Latency}
 
 \begin{frame}{\subsecname}
-	Beispiel für Jitter
+	Definition von Jitter:\\
+	Absolute Response Time Jitter $ARJ_i$ ist definiert durch
+	\begin{equation}
+		ARJ_i=max R_{i,k}-min R_{i,k}
+	\end{equation} mit
+	$R_{i,K}$ als Response-Time für den $k$-ten Job von $\uptau_i$
 \end{frame}
 
 \begin{frame}{\subsecname}
@@ -57,12 +62,39 @@
 	\end{itemize}
 \end{frame}
 
-\begin{frame}{\subsecname}
-	Beispiel aus Paper
+\newcommand{\showRMSlideJit}[1] {\begin{frame}{Beispiel Jitter Rate Monotonics}
+		\begin{center}
+		\begin{tabular}{c||c|c}
+			Task ($\uptau_i$) & Dauer ($C_i$) & Task-Periode ($T_i$)\\\hline\hline
+			$\uptau_1$ & 2 & 6\\
+			$\uptau_2$ & 3 & 8\\
+			$\uptau_3$ & 2 & 12
+		\end{tabular}
+	\end{center}
+	\input{graphics/vergleich/jitter#1_RM.tex}
+\end{frame}}
+
+\forloop{ct}{1}{\value{ct} < 5}%
+{%
+	\showRMSlideJit{\arabic{ct}}
+}
+
+\begin{frame}{Beispiel Jitter Erliest Deadline First}
+		\begin{center}
+		\begin{tabular}{c||c|c}
+			Task ($\uptau_i$) & Dauer ($C_i$) & Task-Periode ($T_i$)\\\hline\hline
+			$\uptau_1$ & 2 & 6\\
+			$\uptau_2$ & 3 & 8\\
+			$\uptau_3$ & 2 & 12
+		\end{tabular}
+	\end{center}
+	\input{graphics/vergleich/jitter1_EDF.tex}
 \end{frame}
 
 \begin{frame}{\subsecname}
-	Graphen aus Paper
+	\begin{center}
+		\includegraphics[scale=.25]{graphics/vergleich/jitter.png}	
+	\end{center}
 \end{frame}
 
 \begin{frame}{\subsecname}
