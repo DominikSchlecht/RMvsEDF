@@ -39,7 +39,73 @@
 
 \subsection{Schedulability Analysis}
 \begin{frame}{\subsecname}
-	%TODO
+	Schedulability meint, dass eine Menge von periodischen Task mithilfe eines Algorithmus planbar ist.\\
+	
+	Vorurteil:
+	\begin{itemize}
+		\item Die Einteilung ist Rate Monotonics leichter berechenbar als bei Erliest Deadline First.
+	\end{itemize}
+\end{frame}
+
+\begin{frame}{\subsecname}
+	Allgemein:
+	\begin{equation}
+		U_i = C_i / T_i
+	\end{equation}
+	\begin{equation}
+		U_P = \sum_{i=1}^n U_i
+	\end{equation}
+	Desweiteren gilt, dass ein Task-Set $P$ nur planbar seien kann, wenn
+	\begin{equation}
+		U_P \leq 1
+	\end{equation}
+\end{frame}
+
+\begin{frame}{\subsecname}
+	Beispiel:
+	\begin{tabular}{c||c|c}
+		Task ($\uptau_i$) & Dauer ($C_i$) & Task-Periode ($T_i$)\\\hline\hline
+		$\uptau_1$ & 2 & 4\\
+		$\uptau_2$ & 3 & 8\\
+		$\uptau_3$ & 2 & 16
+	\end{tabular}
+	\begin{equation}
+		U = \frac{1}{4} + \frac{3}{8} + \frac{2}{16} = \frac{12}{16} \leq 1
+	\end{equation}
+\end{frame}
+
+\begin{frame}{\subsecname}
+	Response Time Analysis (RTA) Algorithmus für Rate Monotonics:
+	\begin{equation}
+		D_i \geq
+		\begin{cases}
+   				R_i^{(0)}=C_i \\
+   				R_i^{(k)}=C_i+ \sum_{j:D_j<D_i} \lceil \frac{R_i^{k-1}}{T_j}\rceil C_j
+  		\end{cases}
+	\end{equation}
+	Processor Demand Criterion (PDC) Algorithmus für Erliest Deadline First:
+	\begin{equation}
+		\forall L > 0,\; \sum_{i=1}^n\lfloor \frac{L+T_i-D_i}{T_i}\rfloor C_i \leq L
+	\end{equation}
+\end{frame}
+
+\begin{frame}{\subsecname}
+	\begin{center}
+		\includegraphics[scale=.25]{graphics/vergleich/rtapdc.png}	
+	\end{center}
+\end{frame}
+
+\begin{frame}{\subsecname}
+	Fazit:
+	\begin{itemize}
+		\item Komplexität für Rate Monotonics: pseudo-polynomial
+		\item Komplexität für Erliest Deadline First:
+		\begin{itemize}
+			\item pseudo-polynomial
+			\item in besonderen Fällen $O(n)$
+		\end{itemize}
+		\item Bei einer hohen Anzahl von Tasks ist Rate Monotonics besser zu berechnen (mit Ausnahmen)
+	\end{itemize}
 \end{frame}
 
 \input{chapter/vergleich/RobustnessDuringOverloads.tex}
@@ -105,18 +171,4 @@
 	\end{itemize}
 \end{frame}
 
-\subsection{Other Issues}
-\subsubsection{Ressource Sharing}
-\begin{frame}{\subsubsecname}
-	Test
-\end{frame}
-
-\subsubsection{Aperiodic Task Handling}
-\begin{frame}{\subsubsecname}
-	Test
-\end{frame}
-
-\subsubsection{Ressource Reservation}
-\begin{frame}{\subsubsecname}
-	Test
-\end{frame}
+%\input{chapter/vergleich/other.tex}
