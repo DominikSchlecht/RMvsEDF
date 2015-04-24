@@ -86,7 +86,7 @@
 	\end{itemize}
 \end{frame}
 
-\begin{frame}{\subsubsecname}
+\newcommand{\showRMSlideRob}[1] {\begin{frame}{\subsubsecname}
 	\begin{center}
 		\begin{tabular}{c||c|c}
 			Task ($\uptau_i$) & Dauer ($C_i$) & Task-Periode ($T_i$)\\\hline\hline
@@ -96,8 +96,13 @@
 			$\uptau_4$ & 3 & 90
 		\end{tabular}
 	\end{center}
-	\input{graphics/vergleich/transientRM.tex}
-\end{frame}
+	\input{graphics/vergleich/transient#1_RM.tex}
+\end{frame}}
+
+\forloop{ct}{1}{\value{ct} < 8}%
+{%
+	\showRMSlideRob{\arabic{ct}}
+}
 
 \begin{frame}{\subsecname}
 	Fazit:
