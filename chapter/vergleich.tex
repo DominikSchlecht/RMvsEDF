@@ -127,6 +127,7 @@
 			\item in besonderen Fällen $O(n)$
 		\end{itemize}
 		\item Bei einer hohen Anzahl von Tasks ist Rate Monotonics besser zu berechnen (mit Ausnahmen)
+		\item Bei Erliest Deadline First ist für höhere Auslastungen ein garantiertes Scheduling möglich
 	\end{itemize}
 \end{frame}
 
@@ -156,7 +157,7 @@
 \end{frame}
 
 \begin{frame}{\subsecname}
-	Vorurteil:
+	Mythos:
 	\begin{itemize}
 		\item Durch die festen Prioritäten entsteht währen der Laufzeit bei Rate Monotonics weniger Jitter als bei Erliest Deadline First. 
 	\end{itemize}
@@ -206,6 +207,12 @@
 		\item RM hält Jitter für die hoch priorisierten Tasks sehr niedrig, vernachlässigt jedoch die anderen Tasks
 		\item Insgesamt erzeugt EDF, gerade bei hoher Auslastung, wesentlich weniger Jitter
 	\end{itemize}
+\end{frame}
+
+\begin{frame}{\subsecname}
+	\begin{center}
+			\includegraphics[scale=1]{graphics/memes/busted.jpg}
+	\end{center}
 \end{frame}
 
 %\input{chapter/vergleich/other.tex}
