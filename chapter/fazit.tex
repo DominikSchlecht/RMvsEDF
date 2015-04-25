@@ -1,14 +1,15 @@
 \begin{frame}{\secname}
-	Vorteile von Rate Monotonics:
+	Vorteile von Rate Monotonics:\pause
 	\begin{itemize}
 		\item leichtere Implementierung in kommerziellen Systemen
-	\end{itemize}
-	Vorteile Erliest Deadline First:
+		\item RTA benötigt weniger Schritte als PDC
+	\end{itemize}\pause
+	Vorteile Erliest Deadline First:\pause
 	\begin{itemize}
-		\item Erlaubt volle Auslastung des Prozessors %TODO
+		\item Erlaubt vertrauenswürdiges Scheduling solange $U \leq 1$
 		\item Weniger Runtime Overhead
 	\end{itemize}
-	Unentschieden oder Situationsabhängig:
+	Unentschieden oder Situationsabhängig:\pause
 	\begin{itemize}
 		\item Overload Situations
 		\item Jitter Control
@@ -20,3 +21,4 @@
 		\includegraphics[scale=0.35]{graphics/memes/success.jpg}
 	\end{center}
 \end{frame}
+

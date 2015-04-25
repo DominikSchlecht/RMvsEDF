@@ -1,6 +1,6 @@
-\subsection{Runtime Overhead}
+\subsection{Runtime Overhead}\label{RuntimeOverhead}
 \begin{frame}{\subsecname}
-	Vorurteil:
+	Mythos:
 	\begin{itemize}
 		\item Rate Monotonics produziert weniger Runtime-Overhead, da die Prioritäten währen der Laufzeit nicht neu berechnet werden müssen
 	\end{itemize}
@@ -23,6 +23,12 @@
 	\showRMSlideRO{\arabic{ct}}
 }
 
+\begin{frame}{\subsecname}
+	Rate Monotonics:
+	\input{graphics/vergleich/runtimeOverhead7_RM.tex}
+	Erliest Deadline First:
+	\input{graphics/vergleich/runtimeOverhead1_EDF.tex}
+\end{frame}
 
 \begin{frame}{Beispiel Erliest Deadline First}
 	\begin{center}
@@ -37,25 +43,15 @@
 \end{frame}
 
 \begin{frame}{\subsecname}
-	Aber:\pause
+	Aber:
 	\begin{itemize}
-		\item Zieht man den Aufwand der Context-Switches in Betracht ergibt sich ein anderes Bild
-	\end{itemize}
-\end{frame}
-
-\begin{frame}{\subsecname}
+		\item Zieht man den Aufwand der Context-Switches in Betracht, ergibt sich ein anderes Bild
+	\end{itemize}\pause
 	Context-Switching/Preemptions:
 	\begin{itemize}
 		\item Umschalten zwischen verschiedenen Tasks
 		\item Zieht Aufwände mit sich
 	\end{itemize}
-\end{frame}
-
-\begin{frame}{\subsecname}
-	Rate Monotonics:
-	\input{graphics/vergleich/runtimeOverhead7_RM.tex}
-	Erliest Deadline First:
-	\input{graphics/vergleich/runtimeOverhead1_EDF.tex}
 \end{frame}
 
 \begin{frame}{\subsecname}
@@ -70,4 +66,10 @@
 	\begin{itemize}
 		\item Beachtet man den Aufwand der Context-Switches, erzeugt Rate Monotonics mehr Overhead als Erliest Deadline First
 	\end{itemize}
+\end{frame}
+
+\begin{frame}{\subsecname}
+	\begin{center}
+			\includegraphics[scale=1]{graphics/memes/busted.jpg}
+	\end{center}
 \end{frame}

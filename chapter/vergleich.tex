@@ -1,22 +1,22 @@
-\subsection{Implementation Complexity}
+\subsection{Implementation Complexity}\label{ImplementationComplexity}
 \begin{frame}{\subsecname}
-	Frage:
+	Mythos:
 	\begin{itemize}
-		\item Wie groß ist der Aufwand das Scheduling-Verfahren zu implementieren?
-	\end{itemize}
-	Antwort:
-	\begin{itemize}
-		\item Rate Monotonics ist einfacher zu implementieren!
+		\item Rate Monotonics ist einfacher zu implementieren als Erliest Deadline First!
 	\end{itemize}
 \end{frame}
 
 \begin{frame}{\subsecname}
+	Fakt:
+	\begin{itemize}
+		\item Auf einem kommerziellen Kernel mit festen Prioritätsleveln ist Rate Monotonics einfacher zu implementieren.
+	\end{itemize}
 	Ist es so einfach?\\\pause
 	Faktoren:
 	\begin{itemize}
 		\item Wird auf einem bestehenden System entwickelt?
 		\item Sind die Prioritäten festgesetzt oder können diese während der Laufzeit verändert werden?
-		\item Wie viele Prioritäts-Level gibt es? %TODO Beispiel?
+		\item Wie viele Prioritäts-Level gibt es?
 	\end{itemize}
 \end{frame}
 
@@ -35,13 +35,25 @@
 	\end{itemize}
 \end{frame}
 
+\begin{frame}{\subsecname}
+	Fazit:
+	\begin{itemize}
+		\item Unter den richtigen Vorbedingungen ist auch EDF leicht zu implementieren.
+	\end{itemize}
+\end{frame}
+
+\begin{frame}{\subsecname}
+	\begin{center}
+			\includegraphics[scale=1]{graphics/memes/busted.jpg}
+	\end{center}
+\end{frame}
+
 \input{chapter/vergleich/RuntimeOverhead.tex}
 
-\subsection{Schedulability Analysis}
+\subsection{Schedulability Analysis}\label{SchedulabilityAnalaysis}
 \begin{frame}{\subsecname}
 	Schedulability meint, dass eine Menge von periodischen Task mithilfe eines Algorithmus planbar ist.\\
-	
-	Vorurteil:
+	Mythos:\pause
 	\begin{itemize}
 		\item Die Einteilung ist Rate Monotonics leichter berechenbar als bei Erliest Deadline First.
 	\end{itemize}
@@ -52,12 +64,13 @@
 	\begin{equation}
 		U_i = C_i / T_i
 	\end{equation}
+	Desweiteren gilt, dass ein Task-Set $P$ unter RM nur sicher planbar seien kann, wenn
 	\begin{equation}
-		U_P = \sum_{i=1}^n U_i
+		\prod_{i=0}^n (U_i +1) \leq 2
 	\end{equation}
-	Desweiteren gilt, dass ein Task-Set $P$ nur planbar seien kann, wenn
+	und unter EDF nur (und auch wirklich nur) planbar sein, wenn
 	\begin{equation}
-		U_P \leq 1
+		\sum_{i=1}^n U_i \leq 1
 	\end{equation}
 \end{frame}
 
@@ -65,13 +78,12 @@
 	Beispiel:
 	\begin{tabular}{c||c|c}
 		Task ($\uptau_i$) & Dauer ($C_i$) & Task-Periode ($T_i$)\\\hline\hline
-		$\uptau_1$ & 2 & 4\\
+		$\uptau_1$ & 1 & 4\\
 		$\uptau_2$ & 3 & 8\\
 		$\uptau_3$ & 2 & 16
-	\end{tabular}
-	\begin{equation}
-		U = \frac{1}{4} + \frac{3}{8} + \frac{2}{16} = \frac{12}{16} \leq 1
-	\end{equation}
+	\end{tabular}$ $\\[2ex]
+		RM:  $U = (\frac{1}{4}+1)(\frac{3}{8}+1)(\frac{2}{16}+1)\approx 1.93 \leq 2$\\[3ex]
+		EDF: $U = \frac{1}{4} + \frac{3}{8} + \frac{2}{16} = \frac{3}{4} = 0.75 \leq 1$
 \end{frame}
 
 \begin{frame}{\subsecname}
@@ -97,7 +109,11 @@
 
 \begin{frame}{\subsecname}
 	\begin{center}
-		\includegraphics[scale=.25]{graphics/vergleich/rtapdc.png}	
+	\begin{figure}
+		\includegraphics[scale=.20]{graphics/vergleich/rtapdc.png}
+		\caption{Vergleich RTA vs. PDC \footnote{Rate Monotonics vs. EDF: Judgment Day, Girorgio C. Buttazzo, 2005}}	
+	\end{figure}
+
 	\end{center}
 \end{frame}
 
@@ -114,9 +130,21 @@
 	\end{itemize}
 \end{frame}
 
+\begin{frame}{\subsecname}
+	\begin{center}
+			\includegraphics[scale=.4]{graphics/memes/fry.jpg}
+	\end{center}
+\end{frame}
+
+\begin{frame}{\subsecname}
+	\begin{center}
+			\includegraphics[scale=1]{graphics/memes/busted.jpg}
+	\end{center}
+\end{frame}
+
 \input{chapter/vergleich/RobustnessDuringOverloads.tex}
 
-\subsection{Jitter and Latency}
+\subsection{Jitter and Latency}\label{JitterandLatency}
 
 \begin{frame}{\subsecname}
 	Definition von Jitter:\\
@@ -165,7 +193,10 @@
 
 \begin{frame}{\subsecname}
 	\begin{center}
-		\includegraphics[scale=.25]{graphics/vergleich/jitter.png}	
+	\begin{figure}
+		\includegraphics[scale=.20]{graphics/vergleich/jitter.png}
+		\caption{Vergleich ARJ bei RM vs EDF\footnote{Rate Monotonics vs. EDF: Judgment Day, Girorgio C. Buttazzo, 2005}}	
+	\end{figure}
 	\end{center}
 \end{frame}
 
