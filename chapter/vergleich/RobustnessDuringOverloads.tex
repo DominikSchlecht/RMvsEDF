@@ -3,7 +3,7 @@
 \begin{frame}{\subsecname}
 	Mythos:
 	\begin{itemize}
-		\item Rate Monotonics ist in Overload-Situationen besser vorhersehbar
+		\item Rate Monotonics ist in Overload-Situationen besser vorhersehbar.
 	\end{itemize}$ $\\\pause
 	Szenarien:
 	\begin{itemize}
@@ -13,7 +13,7 @@
 \end{frame}
 
 \subsubsection{Permanent Overload}
-\begin{frame}{Beispiel Rate Monotonics}
+\begin{frame}{Permanent Overload: Rate Monotonics}
 	\begin{center}
 		\begin{tabular}{c||c|c}
 			Task ($\uptau_i$) & Dauer ($C_i$) & Task-Periode ($T_i$)\\\hline\hline
@@ -25,7 +25,7 @@
 	\input{graphics/vergleich/robustness1_RM.tex}
 \end{frame}
 
-\begin{frame}{Beispiel Erliest Deadline First}
+\begin{frame}{Permanent Overload: Erliest Deadline First}
 	\begin{center}
 		\begin{tabular}{c||c|c}
 			Task ($\uptau_i$) & Dauer ($C_i$) & Task-Periode ($T_i$)\\\hline\hline
@@ -37,7 +37,7 @@
 	\input{graphics/vergleich/robustness1_EDF.tex}
 \end{frame}
 
-\begin{frame}{Beispiel}
+\begin{frame}{\subsubsecname}
 	\input{graphics/vergleich/robustness2_RM.tex}
 	\input{graphics/vergleich/robustness2_EDF.tex}
 \end{frame}
@@ -48,14 +48,14 @@
 				Rate Monotonics:
 				\begin{itemize}
 					\item Tasks mit langer Periode werden vollständig blockiert!
-					\item Gut vorhersagbar
+					\item Gut vorhersagbar.
 				\end{itemize}
 
 			\end{column}
   			\begin{column}{0.5\textwidth}
   				Erliest Deadline First:
 				\begin{itemize}
-					\item Sieht chaotischer aus
+					\item Sieht chaotischer aus.
 					\item Durchschnittliche Periode $\bar{T}_i$ für einen Task $\uptau_i$ ist gegeben durch
 						\begin{equation}
 							\bar{T}_i=T_i\cdot U
@@ -72,8 +72,8 @@
 \begin{frame}{\subsubsecname}
 	Fazit:
 	\begin{itemize}
-		\item Beide Verfahren bei permanenter Überlastung gut vorhersagbar
-		\item Einsatzgebiet ist stark Situationsabhängig
+		\item Beide Verfahren bei permanenter Überlastung gut vorhersagbar.
+		\item Einsatzgebiet ist stark Situationsabhängig.
 	\end{itemize}
 \end{frame}
 
@@ -81,8 +81,8 @@
 \begin{frame}{\subsubsecname}
 	Annahme für RM:
 	\begin{itemize}
-		\item Es werden Tasks mit kurzen Perioden bevorzugt\pause
-		\item[$\Rightarrow$] Falls ein Task seine Deadline überschreitet, wird der Task mit der längsten Periodenlänge verschoben/unterbrochen	
+		\item Es werden Tasks mit kurzen Perioden bevorzugt.\pause
+		\item[$\Rightarrow$] Falls ein Task seine Deadline überschreitet, wird der Task mit der längsten Periodenlänge verschoben/unterbrochen	.
 	\end{itemize}
 \end{frame}
 

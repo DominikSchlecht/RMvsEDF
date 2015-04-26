@@ -8,7 +8,7 @@
 \begin{frame}{\subsecname}
 	Mythos:
 	\begin{itemize}
-		\item Rate Monotonics ist einfacher zu implementieren als Erliest Deadline First!
+		\item Rate Monotonics ist einfacher zu implementieren als Erliest Deadline First.
 	\end{itemize}
 \end{frame}
 
@@ -29,7 +29,7 @@
 \begin{frame}{\subsecname}
 	Annahme
 	\begin{itemize}
-		\item Das System wird von Grund auf mit einer Ready-Queue implementiert\pause
+		\item Das System wird von Grund auf mit einer Ready-Queue implementiert.\pause
 		\item In dieser werden die Tasks für Rate Monotonics
 			\begin{itemize}
 				\item absteigend nach nach dem Prioritäten-Level
@@ -58,7 +58,7 @@
 
 \subsection{Schedulability Analysis}\label{SchedulabilityAnalaysis}
 \begin{frame}{\subsecname}
-	Schedulability meint, dass eine Menge von periodischen Task mithilfe eines Algorithmus planbar ist.\\
+	Schedulability meint, dass eine Menge von periodischen Task mithilfe eines Algorithmus planbar ist.\\[2ex]
 	Mythos:\pause
 	\begin{itemize}
 		\item Die Einteilung ist Rate Monotonics leichter berechenbar als bei Erliest Deadline First.
@@ -87,8 +87,8 @@
 		$\uptau_1$ & 1 & 4\\
 		$\uptau_2$ & 3 & 8\\
 		$\uptau_3$ & 2 & 16
-	\end{tabular}$ $\\[2ex]
-		RM:  $U = (\frac{1}{4}+1)(\frac{3}{8}+1)(\frac{2}{16}+1)\approx 1.93 \leq 2$\\[3ex]
+	\end{tabular}$ $\\[3ex]\pause
+		RM:  $U = (\frac{1}{4}+1)(\frac{3}{8}+1)(\frac{2}{16}+1)\approx 1.93 \leq 2$\\[3ex]\pause
 		EDF: $U = \frac{1}{4} + \frac{3}{8} + \frac{2}{16} = \frac{3}{4} = 0.75 \leq 1$
 \end{frame}
 
@@ -159,7 +159,7 @@
 	\begin{equation}
 		ARJ_i=max R_{i,k}-min R_{i,k}
 	\end{equation} mit
-	$R_{i,K}$ als Response-Time für den $k$-ten Job von $\uptau_i$
+	$R_{i,K}$ als Response-Time für den $k$-ten Job von $\uptau_i$.
 \end{frame}
 
 \begin{frame}{\subsecname}
@@ -210,8 +210,8 @@
 \begin{frame}{\subsecname}
 	Fazit:
 	\begin{itemize}
-		\item RM hält Jitter für die hoch priorisierten Tasks sehr niedrig, vernachlässigt jedoch die anderen Tasks
-		\item Insgesamt erzeugt EDF, gerade bei hoher Auslastung, wesentlich weniger Jitter
+		\item RM hält Jitter für die hoch priorisierten Tasks sehr niedrig, vernachlässigt jedoch die anderen Tasks.
+		\item Insgesamt erzeugt EDF, gerade bei hoher Auslastung, wesentlich weniger Jitter.
 	\end{itemize}
 \end{frame}
 
