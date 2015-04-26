@@ -6,7 +6,7 @@
 			\item Giorgio C. Buttazzo
 			\item University of Pavia, Italien
 			\item buttazzo@unipv.it
-		\end{itemize}
+		\end{itemize}\pause
 		\item Whitepaper
 		\begin{itemize}
 			\item Rate Monotonic vs. EDF: Judgment Day
@@ -22,7 +22,13 @@
 \end{frame}
 
 \begin{frame}{\subsecname}
-\includegraphics[width=\textwidth]{graphics/memes/aintnobody.jpg}
+	\begin{center}
+		\includegraphics[scale=0.25]{graphics/memes/aintnobody.jpg}
+	\end{center}
+\end{frame}
+
+\begin{frame}{\subsecname}
+\tiny Since the first results published in 1973 by Liu and Layland on the Rate Monotonic (RM) and Earliest Deadline First (EDF) algorithms, a lot of progress has been made in the schedulability analysis of periodic task sets. Unfortunately, many misconceptions still exist about the properties of these two scheduling methods, which usually tend to favor RM more than EDF. Typical wrong statements often heard in technical conferences and even in research papers claim that RM is easier to analyze than EDF, it introduces less runtime overhead, it is more predictable in overload conditions, and causes less jitter in task execution.Since the above statements are either wrong, or not precise \tiny, it is time to clarify these issues in a systematic fashion, because the use of EDF allows a better exploitation of the available resources and significantly improves system’s performance. This paper compares RM against EDF under several aspects, using existing theoretical results, specific simulation experiments, or simple counterexamples to show that many common beliefs are either false or only restricted to specific situations.\footnote{Rate Monotonics vs. EDF: Judgment Day, Girorgio C. Buttazzo, 2005}
 \end{frame}
 
 \begin{frame}{\subsecname}
@@ -68,8 +74,7 @@
 	\end{equation}
 \end{frame}
 
-\begin{frame}
-	Klartext:\\
+\begin{frame}{\subsecname}
 	\begin{center}
 		%\rowcolors{1}{RoyalBlue!20}{RoyalBlue!5}
 		\begin{tabular}{c||c|c}
@@ -77,39 +82,60 @@
 			$\uptau_i$ & 5 & 15
 		\end{tabular}
 	\end{center}
-\end{frame}
-
-\begin{frame}
 	\input{graphics/einleitung/simple1.tex}
 \end{frame}
 
-\begin{frame}
+\begin{frame}{\subsecname}
+	\begin{center}
+		%\rowcolors{1}{RoyalBlue!20}{RoyalBlue!5}
+		\begin{tabular}{c||c|c}
+			Task ($\uptau_i$) & Dauer ($C_i$) & Task-Periode ($T_i$)\\\hline\hline
+			$\uptau_i$ & 5 & 15
+		\end{tabular}
+	\end{center}
 	\input{graphics/einleitung/simple2.tex}
 \end{frame}
 
-\begin{frame}
+\begin{frame}{\subsecname}
+	\begin{center}
+		%\rowcolors{1}{RoyalBlue!20}{RoyalBlue!5}
+		\begin{tabular}{c||c|c}
+			Task ($\uptau_i$) & Dauer ($C_i$) & Task-Periode ($T_i$)\\\hline\hline
+			$\uptau_i$ & 5 & 15
+		\end{tabular}
+	\end{center}
 	\input{graphics/einleitung/simple3.tex}
 \end{frame}
 
-\begin{frame}
+\begin{frame}{\subsecname}
+	\begin{center}
+		%\rowcolors{1}{RoyalBlue!20}{RoyalBlue!5}
+		\begin{tabular}{c||c|c}
+			Task ($\uptau_i$) & Dauer ($C_i$) & Task-Periode ($T_i$)\\\hline\hline
+			$\uptau_i$ & 5 & 15
+		\end{tabular}
+	\end{center}
 	\input{graphics/einleitung/simple4.tex}
 \end{frame}
 
-\begin{frame}
-	2 Tasks:
+\begin{frame}{\subsecname}
 	\begin{center}
 		\begin{tabular}{c||c|c}
 				Task ($\uptau_i$) & Dauer ($C_i$) & Task-Periode ($T_i$)\\\hline\hline
 				$\uptau_1$ & 5 & 15\\
 				$\uptau_2$ & 10 & 40\\
 		\end{tabular}
-	\end{center}
-\end{frame}
-
-\begin{frame}
+	\end{center}	
 	\input{graphics/einleitung/compl1.tex}
 \end{frame}
 
-\begin{frame}
+\begin{frame}{\subsecname}
+	\begin{center}
+		\begin{tabular}{c||c|c}
+				Task ($\uptau_i$) & Dauer ($C_i$) & Task-Periode ($T_i$)\\\hline\hline
+				$\uptau_1$ & 5 & 15\\
+				$\uptau_2$ & 10 & 40\\
+		\end{tabular}
+	\end{center}	
 	\input{graphics/einleitung/compl2.tex}
 \end{frame}

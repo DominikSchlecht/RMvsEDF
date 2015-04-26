@@ -1,3 +1,9 @@
+\begin{frame}{\secname}
+	\begin{center}
+			\includegraphics[scale=0.5]{graphics/memes/gandalf.jpg}
+	\end{center}
+\end{frame}
+
 \subsection{Implementation Complexity}\label{ImplementationComplexity}
 \begin{frame}{\subsecname}
 	Mythos:
@@ -23,10 +29,10 @@
 \begin{frame}{\subsecname}
 	Annahme
 	\begin{itemize}
-		\item Das System wird von Grund auf mit einer Ready-Qeue implementiert\pause
+		\item Das System wird von Grund auf mit einer Ready-Queue implementiert\pause
 		\item In dieser werden die Tasks für Rate Monotonics
 			\begin{itemize}
-				\item absteigend nach nach den Proritäten-Leveln
+				\item absteigend nach nach dem Prioritäten-Level
 			\end{itemize}
 			und für Erliest Deadline First
 			\begin{itemize}
@@ -175,7 +181,7 @@
 	\input{graphics/vergleich/jitter#1_RM.tex}
 \end{frame}}
 
-\forloop{ct}{1}{\value{ct} < 5}%
+\forloop{ct}{1}{\value{ct} < 8}%
 {%
 	\showRMSlideJit{\arabic{ct}}
 }
