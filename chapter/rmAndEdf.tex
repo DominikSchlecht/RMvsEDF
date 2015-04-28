@@ -13,6 +13,7 @@
   				Erliest Deadline First:
 				\begin{itemize}
 					\item Job $T_{i, k}$ mit der nächsten Deadline wird bevorzugt
+					\item In diesem Paper ist die Deadline gleich mit der Periode
 					\item Die Priorität von Task $T_i$ entscheidet sich während der Laufzeit
 				\end{itemize}	
   			\end{column}
@@ -25,15 +26,15 @@
 	\begin{center}
 		\begin{tabular}{l||c|c}
 				Task ($\uptau_i$) & Dauer ($C_i$) & Task-Periode ($T_i$)\\\hline\hline
-				$\uptau_1$ & 5 & 15\\
-				$\uptau_2$ & 5 & 20\\
-				$\uptau_3$ & 7 & 40\\
+				$\uptau_1$ & 4 & 10\\
+				$\uptau_2$ & 2 & 16\\
+				$\uptau_3$ & 8 & 20\\
 		\end{tabular}
 	\end{center}
 	\input{graphics/rm/rm#1.tex}
 \end{frame}}
 
-\forloop{ct}{0}{\value{ct} < 9}%
+\forloop{ct}{0}{\value{ct} < 11}%
 {%
 	\showRMSlide{\arabic{ct}}
 }
@@ -42,15 +43,15 @@
 	\begin{center}
 		\begin{tabular}{l||c|c}
 				Task ($\uptau_i$) & Dauer ($C_i$) & Task-Periode ($T_i$)\\\hline\hline
-				$\uptau_1$ & 5 & 15\\
-				$\uptau_2$ & 5 & 20\\
-				$\uptau_3$ & 7 & 40\\
+				$\uptau_1$ & 4 & 10\\
+				$\uptau_2$ & 2 & 16\\
+				$\uptau_3$ & 8 & 20\\
 		\end{tabular}
 	\end{center}
 	\input{graphics/edf/edf#1.tex}
 \end{frame}}
 
-\forloop{ct}{1}{\value{ct} < 10}%
+\forloop{ct}{1}{\value{ct} < 14}%
 {%
 	\showEDFSlide{\arabic{ct}}
 }
