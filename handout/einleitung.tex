@@ -1,0 +1,68 @@
+\subsection{Meta-Informationen}
+\begin{frame}{\subsecname}
+	\begin{itemize}
+		\item Author:
+		\begin{itemize}
+			\item Giorgio C. Buttazzo
+			\item University of Pavia, Italien
+			\item buttazzo@unipv.it
+		\end{itemize}\pause
+		\item Whitepaper
+		\begin{itemize}
+			\item Rate Monotonic vs. EDF: Judgment Day
+			\item Real-Time Systems, 29, 5–26, 2005
+		\end{itemize}						
+		
+	\end{itemize}
+\end{frame} 
+
+\subsection{Abstract}
+\begin{frame}{\subsecname}
+\tiny Since the first results published in 1973 by Liu and Layland on the Rate Monotonic (RM) and Earliest Deadline First (EDF) algorithms, a lot of progress has been made in the schedulability analysis of periodic task sets. Unfortunately, many \Large misconceptions \tiny still exist about the properties of these two scheduling methods, which usually tend to \Large favor RM more than EDF \tiny. Typical wrong statements often heard in technical conferences and even in research papers claim that RM is easier to analyze than EDF, it introduces less runtime overhead, it is more predictable in overload conditions, and causes less jitter in task execution.Since the above statements are \Large  either wrong, or not precise \tiny, it is time to clarify these issues in a systematic fashion, because the use of EDF allows a better exploitation of the available resources and significantly improves system’s performance. \Large This paper compares RM against EDF \tiny under several aspects, using existing theoretical results, specific simulation experiments, or simple counterexamples to show that many common beliefs are either false or only restricted to specific situations.\footnote{Rate Monotonics vs. EDF: Judgment Day, Girorgio C. Buttazzo, 2005}
+\end{frame}
+
+%\section{Erläuterung}
+\subsection{Flashback - Scheduling}
+\begin{frame}{\subsecname}
+	Wir definieren:
+	\begin{equation}
+		\uptau_{i, k} \text{ als Job mit einer absoluten Deadline } d_{i, k}
+	\end{equation}
+	\pause
+	\begin{equation}
+		\uptau_i \text{ als infinite Folge von Jobs } \uptau_{i, k} \text{ mit }
+	\end{equation}
+	\pause
+	\begin{equation}
+		\begin{array}{l l l}
+			\text{Wort-Case-Execution-Time } & C_i\\
+			\text{Task-Period } & T_i
+		\end{array}
+	\end{equation}
+\end{frame}
+
+Beispiel mit einem Task:
+\begin{frame}{\subsecname}
+	\begin{center}
+		%\rowcolors{1}{RoyalBlue!20}{RoyalBlue!5}
+		\begin{tabular}{c||c|c}
+			Task ($\uptau_i$) & Dauer ($C_i$) & Task-Periode ($T_i$)\\\hline\hline
+			$\uptau_1$ & 5 & 15
+		\end{tabular}
+	\end{center}
+	\input{graphics/einleitung/simple4.tex}
+\end{frame}
+\newpage
+Beispiel mit 2 Tasks:
+\begin{frame}{\subsecname}
+	\begin{center}
+		\begin{tabular}{c||c|c}
+				Task ($\uptau_i$) & Dauer ($C_i$) & Task-Periode ($T_i$)\\\hline\hline
+				$\uptau_1$ & 5 & 15\\
+				$\uptau_2$ & 10 & 40\\
+		\end{tabular}
+	\end{center}	
+	\input{graphics/einleitung/compl2.tex}
+	Problem: 2 Tasks versuchen gleichzeitig auf einem Prozessor zu laufen.
+\end{frame}
+

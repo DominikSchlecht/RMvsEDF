@@ -1,0 +1,114 @@
+\subsection{Robustness During Overloads}\label{RobustnessDuringOverloads}
+
+\begin{frame}{Mythos:}
+	\begin{itemize}
+		\item Rate Monotonics ist in Overload-Situationen besser vorhersehbar.
+	\end{itemize}
+\end{frame}
+
+\subsubsection{Permanent Overload}
+\begin{frame}{Permanent Overload: Taskset}
+	\begin{center}
+		\begin{tabular}{c||c|c}
+			Task ($\uptau_i$) & Dauer ($C_i$) & Task-Periode ($T_i$)\\\hline\hline
+			$\uptau_1$ & 4 & 8\\
+			$\uptau_2$ & 6 & 12\\
+			$\uptau_3$ & 5 & 20
+		\end{tabular}
+		
+	\end{center}
+\end{frame}
+
+\begin{frame}{Permanent Overload: Rate Monotonics}
+\begin{itemize}
+			\item $U=(\frac{4}{8}+1)(\frac{6}{12}+1)(\frac{5}{20}+1)\approx 2.81 \nleq 2$\pause		
+		\end{itemize}				
+
+		\input{graphics/vergleich/robustness1_RM.tex}
+\end{frame}
+
+\begin{frame}{Permanent Overload: Erliest Deadline First}
+	\begin{center}
+		\begin{itemize}
+			\item $U=\frac{4}{8}+\frac{6}{12}+\frac{5}{20}=1.25 \nleq 1$\pause		
+		\end{itemize}
+
+	\input{graphics/vergleich/robustness1_EDF.tex}
+	\end{center}
+\end{frame}
+
+\begin{frame}{Vergleich Permanent Overload}
+	\begin{columns}[]
+  			\begin{column}{0.5\textwidth}
+				Rate Monotonics:
+				\begin{itemize}
+					\item Tasks mit langer Periode werden vollständig blockiert!
+					\item Gut vorhersagbar.
+				\end{itemize}
+
+			\end{column}
+  			\begin{column}{0.5\textwidth}
+  				Erliest Deadline First:
+				\begin{itemize}
+					\item Sieht chaotischer aus.
+					\item Durchschnittliche Periode $\bar{T}_i$ für einen Task $\uptau_i$ ist gegeben durch
+						\begin{equation}
+							\bar{T}_i=T_i\cdot U
+						\end{equation}
+				\end{itemize}	
+  			\end{column}
+	\end{columns}
+\end{frame}
+
+%\begin{frame}{\subsubsecname}
+%	Beispiel mit EDF? %TODO
+%\end{frame}
+
+\begin{frame}{Fazit Permanent Overload:}
+	
+	\begin{itemize}
+		\item Beide Verfahren bei permanenter Überlastung gut vorhersagbar.
+		\item Einsatzgebiet ist stark Situationsabhängig.
+	\end{itemize}
+\end{frame}
+
+\subsubsection{Transient Overload}
+\begin{frame}{Annahme für Rate Monotonics:}
+	\begin{itemize}
+		\item Es werden Tasks mit kurzen Perioden bevorzugt.\pause
+		\item[$\Rightarrow$] Falls ein Task seine Deadline überschreitet, wird der Task mit der längsten Periodenlänge verschoben/unterbrochen	.
+	\end{itemize}
+\end{frame}
+
+\newcommand{\showRMSlideRob}[1] {\begin{frame}{Gegenbeispiel}
+	\begin{center}
+		\begin{tabular}{c||c|c}
+			Task ($\uptau_i$) & Dauer ($C_i$) & Task-Periode ($T_i$)\\\hline\hline
+			$\uptau_1$ & 6 & 15\\
+			$\uptau_2$ & 9 & 27\\
+			$\uptau_3$ & 3 & 60\\
+			$\uptau_4$ & 3 & 90
+		\end{tabular}
+	\end{center}
+	\input{graphics/vergleich/transient#1_RM.tex}
+	
+	\begin{itemize}
+		\item[$\Rightarrow$] $\uptau_2$ wird unterbrochen, während Task $\uptau_3$ und $\uptau_4$ nicht beeinflusst werden!
+	\end{itemize}
+\end{frame}}
+
+\forloop{ct}{7}{\value{ct} < 8}%
+{%
+	\showRMSlideRob{\arabic{ct}}
+}
+
+
+\begin{frame}{Fazit:}
+	\begin{itemize}
+		\item Permanent Overload: Gleichwertig.
+		\item Transient Overload:
+		\begin{itemize}
+			\item Rate Monotonics verführt zu falschen Annahmen.
+		\end{itemize}
+	\end{itemize}
+\end{frame}

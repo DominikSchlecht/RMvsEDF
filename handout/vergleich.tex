@@ -1,24 +1,16 @@
-\begin{frame}{\secname}
-	\begin{center}
-			\includegraphics[scale=0.5]{graphics/memes/gandalf.jpg}
-	\end{center}
-\end{frame}
-
 \subsection{Implementation Complexity}\label{ImplementationComplexity}
-\begin{frame}{\subsecname}
-	Mythos:
+\begin{frame}{Mythos:}
 	\begin{itemize}
 		\item Rate Monotonics ist einfacher zu implementieren als Erliest Deadline First.
 	\end{itemize}
 \end{frame}
 
-\begin{frame}{\subsecname}
-	Fakt:
+\begin{frame}{Fakt:}
 	\begin{itemize}
 		\item Auf einem kommerziellen Kernel mit festen Prioritätsleveln ist Rate Monotonics einfacher zu implementieren.
 	\end{itemize}
-	Ist es so einfach?\\\pause
-	Faktoren:
+\end{frame}
+\begin{frame}{Weitere Faktoren:}
 	\begin{itemize}
 		\item Wird auf einem bestehenden System entwickelt?
 		\item Sind die Prioritäten festgesetzt oder können diese während der Laufzeit verändert werden?
@@ -26,8 +18,7 @@
 	\end{itemize}
 \end{frame}
 
-\begin{frame}{\subsecname}
-	Annahme
+\begin{frame}{Annahme:}
 	\begin{itemize}
 		\item Das System wird von Grund auf mit einer Ready-Queue implementiert.\pause
 		\item In dieser werden die Tasks für Rate Monotonics
@@ -41,32 +32,27 @@
 	\end{itemize}
 \end{frame}
 
-\begin{frame}{\subsecname}
-	Fazit:
+\begin{frame}{Fazit:}
 	\begin{itemize}
 		\item Unter den richtigen Vorbedingungen ist auch EDF leicht zu implementieren.
 	\end{itemize}
 \end{frame}
 
-\begin{frame}{\subsecname}
-	\begin{center}
-			\includegraphics[scale=1]{graphics/memes/busted.jpg}
-	\end{center}
-\end{frame}
 
-\input{chapter/vergleich/RuntimeOverhead.tex}
+\input{handout/vergleich/RuntimeOverhead.tex}
 
 \subsection{Schedulability Analysis}\label{SchedulabilityAnalaysis}
-\begin{frame}{\subsecname}
-	Schedulability meint, dass eine Menge von periodischen Task mithilfe eines Algorithmus planbar ist.\\[2ex]
-	Mythos:\pause
+\begin{frame}{Erklärung:}
+	Schedulability meint, dass eine Menge von periodischen Task mithilfe eines Algorithmus planbar ist.
+\end{frame}
+\begin{frame}{Mythos:}
 	\begin{itemize}
 		\item Die Einteilung ist bei Rate Monotonics leichter berechenbar als bei Erliest Deadline First.
 	\end{itemize}
 \end{frame}
 
-\begin{frame}{\subsecname}
-	Allgemein:
+\begin{frame}{Allgemein gilt:}
+	
 	\begin{equation}
 		U_i = C_i / T_i
 	\end{equation}
@@ -80,19 +66,27 @@
 	\end{equation}
 \end{frame}
 
-\begin{frame}{\subsecname}
-	Beispiel:
-	\begin{tabular}{c||c|c}
-		Task ($\uptau_i$) & Dauer ($C_i$) & Task-Periode ($T_i$)\\\hline\hline
-		$\uptau_1$ & 1 & 4\\
-		$\uptau_2$ & 3 & 8\\
-		$\uptau_3$ & 2 & 16
-	\end{tabular}$ $\\[3ex]\pause
-		RM:  $U = (\frac{1}{4}+1)(\frac{3}{8}+1)(\frac{2}{16}+1)\approx 1.93 \leq 2$\\[3ex]\pause
-		EDF: $U = \frac{1}{4} + \frac{3}{8} + \frac{2}{16} = \frac{3}{4} = 0.75 \leq 1$
+\begin{frame}{Beispiel:}
+	\begin{center}
+		\begin{tabular}{c||c|c}
+			Task ($\uptau_i$) & Dauer ($C_i$) & Task-Periode ($T_i$)\\\hline\hline
+			$\uptau_1$ & 1 & 4\\
+			$\uptau_2$ & 3 & 8\\
+			$\uptau_3$ & 2 & 16
+		\end{tabular}	
+		\begin{itemize}
+			\item RM: $U = (\frac{1}{4}+1)(\frac{3}{8}+1)(\frac{2}{16}+1)\approx 1.93 \leq 2$
+			\item EDF: $U = \frac{1}{4} + \frac{3}{8} + \frac{2}{16} = \frac{3}{4} = 0.75 \leq 1$
+		\end{itemize}
+	\end{center}
+
 \end{frame}
 
-\begin{frame}{\subsecname}
+\begin{frame}
+
+\end{frame}
+
+\begin{frame}{RTA und PDC}
 	Response Time Analysis (RTA) Algorithmus für Rate Monotonics:
 	\begin{equation}
 		D_i \geq
@@ -105,26 +99,18 @@
 	\begin{equation}
 		\forall L > 0,\; \sum_{i=1}^n\lfloor \frac{L+T_i-D_i}{T_i}\rfloor C_i \leq L
 	\end{equation}
-\end{frame}
 
-\begin{frame}
-	\begin{center}
-		\includegraphics[width=0.7\textwidth]{graphics/memes/sciencedog.jpg}
-	\end{center}
-\end{frame}
-
-\begin{frame}{\subsecname}
-	\begin{center}
-	\begin{figure}
-		\includegraphics[scale=.20]{graphics/vergleich/rtapdc.png}
+	\begin{figure}[htbp]
+		\begin{center}	
+			\includegraphics[scale=.30]{graphics/vergleich/rtapdc.png}
+		\end{center}
 		\caption{Vergleich RTA vs. PDC \footnote{Rate Monotonics vs. EDF: Judgment Day, Girorgio C. Buttazzo, 2005}}	
+		\label{fig:RTAvsPDC}
 	\end{figure}
-
-	\end{center}
 \end{frame}
 
-\begin{frame}{\subsecname}
-	Fazit:
+\newpage
+\begin{frame}{Fazit:}
 	\begin{itemize}
 		\item Komplexität für Rate Monotonics: pseudo-polynomial
 		\item Komplexität für Erliest Deadline First:
@@ -132,29 +118,16 @@
 			\item pseudo-polynomial
 			\item in besonderen Fällen $O(n)$
 		\end{itemize}
-		\item Bei einer hohen Anzahl von Tasks ist Rate Monotonics besser zu berechnen (mit Ausnahmen)
-		\item Bei Erliest Deadline First ist für höhere Auslastungen ein garantiertes Scheduling möglich
+		\item Bei einer hohen Anzahl von Tasks ist Rate Monotonics besser zu berechnen (siehe Figure \ref{fig:RTAvsPDC} auf Seite \pageref{fig:RTAvsPDC}).
+		\item Bei Erliest Deadline First ist für höhere Auslastungen ein garantiertes Scheduling möglich.
 	\end{itemize}
 \end{frame}
 
-\begin{frame}{\subsecname}
-	\begin{center}
-			\includegraphics[scale=.4]{graphics/memes/fry.jpg}
-	\end{center}
-\end{frame}
-
-\begin{frame}{\subsecname}
-	\begin{center}
-			\includegraphics[scale=1]{graphics/memes/busted.jpg}
-	\end{center}
-\end{frame}
-
-\input{chapter/vergleich/RobustnessDuringOverloads.tex}
+\input{handout/vergleich/RobustnessDuringOverloads.tex}
 
 \subsection{Jitter and Latency}\label{JitterandLatency}
 
-\begin{frame}{\subsecname}
-	Definition von Jitter:\\
+\begin{frame}{Absolute Response Time Jitter}
 	Absolute Response Time Jitter $ARJ_i$ ist definiert durch
 	\begin{equation}
 		ARJ_i=max R_{i,k}-min R_{i,k}
@@ -162,63 +135,47 @@
 	$R_{i,K}$ als Response-Time für den $k$-ten Job von $\uptau_i$.
 \end{frame}
 
-\begin{frame}{\subsecname}
-	Mythos:
+\begin{frame}{Mythos:}
 	\begin{itemize}
 		\item Durch die festen Prioritäten entsteht währen der Laufzeit bei Rate Monotonics weniger Jitter als bei Erliest Deadline First. 
 	\end{itemize}
 \end{frame}
 
-\newcommand{\showRMSlideJit}[1] {\begin{frame}{Beispiel Jitter Rate Monotonics}
-		\begin{center}
+\begin{frame}{Beispiel Taskset}
+	\begin{center}
 		\begin{tabular}{c||c|c}
 			Task ($\uptau_i$) & Dauer ($C_i$) & Task-Periode ($T_i$)\\\hline\hline
 			$\uptau_1$ & 2 & 6\\
 			$\uptau_2$ & 3 & 8\\
 			$\uptau_3$ & 2 & 12
-		\end{tabular}
+		\end{tabular}	
 	\end{center}
-	\input{graphics/vergleich/jitter#1_RM.tex}
-\end{frame}}
+\end{frame}
 
-\forloop{ct}{1}{\value{ct} < 8}%
-{%
-	\showRMSlideJit{\arabic{ct}}
-}
+\begin{frame}{Beispiel Jitter Rate Monotonics}
+	\input{graphics/vergleich/jitter7_RM.tex}
+\end{frame}
 
 \begin{frame}{Beispiel Jitter Erliest Deadline First}
-		\begin{center}
-		\begin{tabular}{c||c|c}
-			Task ($\uptau_i$) & Dauer ($C_i$) & Task-Periode ($T_i$)\\\hline\hline
-			$\uptau_1$ & 2 & 6\\
-			$\uptau_2$ & 3 & 8\\
-			$\uptau_3$ & 2 & 12
-		\end{tabular}
-	\end{center}
 	\input{graphics/vergleich/jitter1_EDF.tex}
 \end{frame}
 
 \begin{frame}{\subsecname}
-	\begin{center}
-	\begin{figure}
-		\includegraphics[scale=.20]{graphics/vergleich/jitter.png}
-		\caption{Vergleich ARJ bei RM vs EDF\footnote{Rate Monotonics vs. EDF: Judgment Day, Girorgio C. Buttazzo, 2005}}	
+	\begin{figure}[htbp]
+		\begin{center}
+			\includegraphics[scale=.30]{graphics/vergleich/jitter.png}
+		\end{center}
+		\caption{Vergleich ARJ bei RM vs EDF\footnote{Rate Monotonics vs. EDF: Judgment Day, Girorgio C. Buttazzo, 2005}}
+		\label{fig:jitter}
 	\end{figure}
-	\end{center}
+	
 \end{frame}
 
-\begin{frame}{\subsecname}
-	Fazit:
+\begin{frame}{Fazit:}
 	\begin{itemize}
 		\item RM hält Jitter für die hoch priorisierten Tasks sehr niedrig, vernachlässigt jedoch die anderen Tasks.
-		\item Insgesamt erzeugt EDF, gerade bei hoher Auslastung, wesentlich weniger Jitter.
+		\item Insgesamt erzeugt EDF, gerade bei hoher Auslastung, wesentlich weniger Jitter (siehe Figure \ref{fig:jitter} auf Seite \pageref{fig:jitter}).
 	\end{itemize}
-\end{frame}
-
-\begin{frame}{\subsecname}
-	\begin{center}
-			\includegraphics[scale=1]{graphics/memes/busted.jpg}
-	\end{center}
 \end{frame}
 
 %\input{chapter/vergleich/other.tex}

@@ -1,0 +1,50 @@
+\subsection{Runtime Overhead}\label{RuntimeOverhead}
+\begin{frame}{Mythos:}
+	\begin{itemize}
+		\item Rate Monotonics produziert weniger Runtime-Overhead, da die Prioritäten währen der Laufzeit nicht neu berechnet werden müssen.
+	\end{itemize}
+\end{frame}
+
+\begin{frame}{Beispiel}
+	\begin{center}
+		\begin{tabular}{c||c|c}
+			Task ($\uptau_i$) & Dauer ($C_i$) & Task-Periode ($T_i$)\\\hline\hline
+			$\uptau_1$ & 4 & 10\\
+			$\uptau_2$ & 8 & 14
+		\end{tabular}
+	\end{center}
+	\begin{itemize}
+		\item Rate Monotonics:
+	\end{itemize}
+	\input{graphics/vergleich/runtimeOverhead7_RM.tex}
+	\begin{itemize}
+		\item Erliest Deadline First:	
+	\end{itemize}
+
+	\input{graphics/vergleich/runtimeOverhead1_EDF.tex}
+\end{frame}
+
+\begin{frame}{Context-Switching/Preemptions:}
+	\begin{itemize}
+		\item Umschalten zwischen verschiedenen Tasks.
+		\item Zieht Aufwände mit sich.
+	\end{itemize}
+\end{frame}
+
+\newpage
+\begin{frame}{Vergleich Rate Monotonics vs. Erliest Deadline First}
+	\begin{itemize}
+		\item Rate Monotonics:
+	\end{itemize}
+	\input{graphics/vergleich/runtimeOverhead_RM_C.tex}
+	\begin{itemize}
+		\item Erliest Deadline First:	
+	\end{itemize}
+	\input{graphics/vergleich/runtimeOverhead_EDF_C.tex}
+\end{frame}
+
+\begin{frame}{Fazit:}
+	\begin{itemize}
+		\item Beachtet man den Aufwand der Context-Switches, erzeugt Rate Monotonics mehr Overhead als Erliest Deadline First
+	\end{itemize}
+\end{frame}

@@ -1,0 +1,123 @@
+\documentclass[a4paper,10pt, DIV=11]{scrartcl}
+%\documentclass[a4paper,11pt,DIV=11,oneside]{scrreprt} % 
+\usepackage[envcountsect]{beamerarticle}
+\setjobnamebeamerversion{geometry.beamer}
+
+%\documentclass[unknownkeysallowed]{beamer}
+
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern}
+
+\setcounter{tocdepth}{2}
+
+\usepackage{listings}
+
+% For For-Loops
+\usepackage{forloop}
+\newcounter{ct}
+
+\usepackage{graphicx}
+\usepackage{xcolor}
+\usepackage{tikz}
+\usetikzlibrary{arrows, snakes, backgrounds}
+\usepackage{wrapfig}
+
+\setbeamercovered{transparent}
+% for \uptau
+\usepackage{upgreek}
+
+\title{Rate Monotonic vs. EDF: Judgment Day}
+\subtitle{von Buttazzo, G. C.}
+\date{\today}
+\author{Dominik Schlecht}
+\institute[THI]{Technische Hochschule Ingolstadt}
+
+% Farben der THI
+\definecolor{THIblue}{rgb}{0.0078,0.1176,0.4705}
+%%-------------Allgemeine Definitionen----------------------------------
+% Farbige Aufwertung der berschriften
+%\addtokomafont{chapter}{\color{THIblue}}
+\addtokomafont{section}{\color{THIblue}}
+\addtokomafont{caption}{\color{THIblue}}
+\addtokomafont{subsection}{\color{THIblue}}
+\addtokomafont{subsubsection}{\color{THIblue}}
+\setkomafont{captionlabel}{\color{THIblue}}
+
+%Hyperref
+\usepackage[
+		pdftex,
+		linkcolor=THIblue,			% Farbe der Verlinkung
+		linktocpage=true,			% Im TOC wird Seitenzahl verlinkt(true),bzw. Text(false)
+		colorlinks=true,			% 'true' keinen Kasten um Link
+		citecolor=THIblue,
+%		pdfhighlight=/P,
+%		bookmarks,
+%		hyperfigures=true,
+%		citebordercolor={0 0 1},
+%		linkbordercolor={0 0 1},
+%		menubordercolor={0 0 1},
+%		backref=true,
+%		pagebackref=true,
+%		bookmarksopen,
+%		bookmarksnumbered,
+%		pdfpagelabels=false,
+%		pdfstartpage=1,
+%		pdfstartview=Fit,			% Modus beim Öffnen (Fit = An Seitengröße anpassen)
+		pdftitle={Rate Monotonics vs. Erliest Deadline First},
+		pdfauthor={Dominik Schlecht},
+%		pdfstartview=Fit,
+%		pdfdisplaydoctitle=true,
+%		plainpages=false
+			]{hyperref} 
+			
+\usepackage{scrpage2} 	% Kopf & Fußzeile im KOMA Stil
+\pagestyle{scrheadings}	% Aktiviert Verwendung vordefinierter Kolumnentitel
+\clearscrheadfoot 		% alle Standard-Werte und Formatierungen löschen
+\setkomafont{pagehead}{\scshape}	% Schriftart in Kopfzeile, \scshape = Kapitelchen
+\automark[chapter]{section} % [linke Seite]{rechte Seite}
+%\ohead{\def\pagestyle{PDTS}{\hrulefill\includegraphics[width = 6cm]{bilder/thi_logo_quer_cropped}}}
+\ohead{\includegraphics[width = 5cm]{handout/bilder/thi_logo_quer_cropped}}
+
+%\ihead{\textsc{Abschlussarbeit}}
+%\ohead{\headmark}
+\ihead{Rate Monotonics vs. Erliest Deadline First}
+
+%\setheadwidth[0pt]{textwithmarginpar}
+\ofoot{\vspace{-0.3cm} \pagemark} 						
+\ifoot{\vspace{-0.3cm} Dominik Schlecht} 
+				
+%\setheadtopline{.4pt}				
+\setheadsepline{.2pt}
+\setfootsepline{.4pt}	% Trennlinie Fußzeile und Textkörper
+
+% Document..
+\begin{document}
+	\frame{\maketitle}
+	\frame{\tableofcontents[hideallsubsections]}
+	\newpage
+	
+	\section{Einleitung}
+	\input{handout/einleitung.tex}
+	
+	\section{Rate Monotonic \& Erliest Deadline First}
+	\input{handout/rmAndEdf.tex}
+	
+	\section{Vergleich}
+	\input{handout/vergleich.tex}
+	
+	\newpage
+	\section{Fazit}
+
+	\begin{frame}<beamer>
+		\frametitle{Gliederung}
+		\tableofcontents[
+  			currentsection,
+  			sectionstyle=show/show,
+  			subsectionstyle=show/shaded/hide,
+  			squeeze
+		]
+	\end{frame}	
+	
+	\input{handout/fazit.tex}
+		
+\end{document}
