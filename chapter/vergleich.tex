@@ -8,7 +8,7 @@
 \begin{frame}{\subsecname}
 	Mythos:
 	\begin{itemize}
-		\item Rate Monotonics ist einfacher zu implementieren als Erliest Deadline First.
+		\item Rate Monotonics ist einfacher zu implementieren als Earliest Deadline First.
 	\end{itemize}
 \end{frame}
 
@@ -34,7 +34,7 @@
 			\begin{itemize}
 				\item absteigend nach nach dem Prioritäten-Level
 			\end{itemize}
-			und für Erliest Deadline First
+			und für Earliest Deadline First
 			\begin{itemize}
 				\item aufsteigend nach der absoluten Deadline
 			\end{itemize} gespeichert.
@@ -61,7 +61,7 @@
 	Schedulability meint, dass eine Menge von periodischen Task mithilfe eines Algorithmus planbar ist.\\[2ex]
 	Mythos:\pause
 	\begin{itemize}
-		\item Die Einteilung ist bei Rate Monotonics leichter berechenbar als bei Erliest Deadline First.
+		\item Die Einteilung ist bei Rate Monotonics leichter berechenbar als bei Earliest Deadline First.
 	\end{itemize}
 \end{frame}
 
@@ -101,7 +101,7 @@
    				R_i^{(k)}=C_i+ \sum_{j:D_j<D_i} \lceil \frac{R_i^{k-1}}{T_j}\rceil C_j
   		\end{cases}
 	\end{equation}
-	Processor Demand Criterion (PDC) Algorithmus für Erliest Deadline First:
+	Processor Demand Criterion (PDC) Algorithmus für Earliest Deadline First:
 	\begin{equation}
 		\forall L > 0,\; \sum_{i=1}^n\lfloor \frac{L+T_i-D_i}{T_i}\rfloor C_i \leq L
 	\end{equation}
@@ -127,13 +127,13 @@
 	Fazit:
 	\begin{itemize}
 		\item Komplexität für Rate Monotonics: pseudo-polynomial
-		\item Komplexität für Erliest Deadline First:
+		\item Komplexität für Earliest Deadline First:
 		\begin{itemize}
 			\item pseudo-polynomial
 			\item in besonderen Fällen $O(n)$
 		\end{itemize}
 		\item Bei einer hohen Anzahl von Tasks ist Rate Monotonics besser zu berechnen (mit Ausnahmen)
-		\item Bei Erliest Deadline First ist für höhere Auslastungen ein garantiertes Scheduling möglich
+		\item Bei Earliest Deadline First ist für höhere Auslastungen ein garantiertes Scheduling möglich
 	\end{itemize}
 \end{frame}
 
@@ -165,7 +165,7 @@
 \begin{frame}{\subsecname}
 	Mythos:
 	\begin{itemize}
-		\item Durch die festen Prioritäten entsteht währen der Laufzeit bei Rate Monotonics weniger Jitter als bei Erliest Deadline First. 
+		\item Durch die festen Prioritäten entsteht währen der Laufzeit bei Rate Monotonics weniger Jitter als bei Earliest Deadline First. 
 	\end{itemize}
 \end{frame}
 
@@ -186,7 +186,7 @@
 	\showRMSlideJit{\arabic{ct}}
 }
 
-\begin{frame}{Beispiel Jitter Erliest Deadline First}
+\begin{frame}{Beispiel Jitter Earliest Deadline First}
 		\begin{center}
 		\begin{tabular}{c||c|c}
 			Task ($\uptau_i$) & Dauer ($C_i$) & Task-Periode ($T_i$)\\\hline\hline

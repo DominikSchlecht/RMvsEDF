@@ -23,7 +23,7 @@
 	\showRMSlideRO{\arabic{ct}}
 }
 
-\begin{frame}{Beispiel Erliest Deadline First}
+\begin{frame}{Beispiel Earliest Deadline First}
 	\begin{center}
 		%\rowcolors{1}{RoyalBlue!20}{RoyalBlue!5}
 		\begin{tabular}{c||c|c}
@@ -38,7 +38,7 @@
 \begin{frame}{\subsecname}
 	Rate Monotonics:
 	\input{graphics/vergleich/runtimeOverhead7_RM.tex}
-	Erliest Deadline First:
+	Earliest Deadline First:
 	\input{graphics/vergleich/runtimeOverhead1_EDF.tex}
 \end{frame}
 
@@ -53,14 +53,14 @@
 \begin{frame}{\subsecname}
 	Rate Monotonics:
 	\input{graphics/vergleich/runtimeOverhead_RM_C.tex}
-	Erliest Deadline First:
+	Earliest Deadline First:
 	\input{graphics/vergleich/runtimeOverhead_EDF_C.tex}
 \end{frame}
 
 \begin{frame}{\subsecname}
 	Fazit:
 	\begin{itemize}
-		\item Beachtet man den Aufwand der Context-Switches, erzeugt Rate Monotonics mehr Overhead als Erliest Deadline First
+		\item Beachtet man den Aufwand der Context-Switches, erzeugt Rate Monotonics mehr Overhead als Earliest Deadline First
 	\end{itemize}
 \end{frame}
 
